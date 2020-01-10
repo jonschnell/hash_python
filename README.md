@@ -5,13 +5,13 @@ simple hash dictionary generator using command line arguments.
 
 -hashing a string
 
-`python hash [string] [algorithm]`
+`python hash.py [string] [algorithm]`
     
 -hashing all string in a file.txt
 
-`python hash [filename.txt] [algorithm] -f [outputFile.txt]`
+`python hash.py [filename.txt] [algorithm] -f [outputFile.txt]`
     
 -hashing all string in a file.txt to generate a dictionary(file with hashes and plaintext seperated by a ":"
 
-`python hash [filename.txt] [algorithm] -d [outputDictionary.txt]`
+`python hash.py [filename.txt] [algorithm] -d [outputDictionary.txt]`
 
