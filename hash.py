@@ -5,7 +5,7 @@ Created on Jan 7, 2020
 
 @date: 1/7/2019
 
-@version: 1.0
+@version: 1.0.1
 
 '''
 import argparse
@@ -18,7 +18,7 @@ if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
 	parser.add_argument("string", help="[string] OR [filename.txt] to be hashed")
 	parser.add_argument("algorithm", help="algorithm to be used [sha1], [sha224], [sha384], [sha256], [sha512], [md5]")
-	parser.add_argument("-f", "--file", action="store", nargs='?', default='false', help="save hashes to an output file [filename.txt] main argument [string] must also be [filename.txt]")
+	parser.add_argument("-f", "--file", nargs='?', default='false', help="save hashes to an output file [filename.txt] main argument [string] must also be [filename.txt]")
 	parser.add_argument("-d", "--dictionary", action="store", nargs='?', default='false', help="generate a dictionary file [filename.txt]")
 
 
@@ -26,6 +26,7 @@ if __name__ == "__main__":
 	
 	string = args.string
 	algorithm = args.algorithm
+	
 	
 	#check to see if fn can be opened
 	def fileCheck(fn):
@@ -103,15 +104,15 @@ if __name__ == "__main__":
 		print(outDictionary + " created")
 	
 	#if -d is set to an output dictionary
-	if args.d != "false":
-		outDictionary = args.d
+	if args.dictionary != "false":
+		outDictionary = args.dictionary
 		fileCheck(string)
 		fileExist(outDictionary)
 		hashDictionary(string, algorithm, outDictionary)
-		
+	
 	#if -f is set to an outputfile
-	elif args.f != "false":
-		outfile = args.f
+	elif args.file != "false":
+		outfile = args.file
 		fileCheck(string)
 		fileExist(outfile)
 		hashFileOut(string, algorithm, outfile)
